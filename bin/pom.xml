@@ -36,34 +36,13 @@
 		</dependency>
 
 		<!-- Configurando para aceitar xml ao invés de JSON no consumo da api -->
-		<!-- No postman: Headers: Key -> accepted value-> application/xml
-		 Isso é muito daora, o postman exibiu um corpo de codigo em html com os valores! SHOW!!!
-		Isso é content negociation, o consumidor da API define o formato que ele quer para consumir -->
+		<!-- No postman: Headers: Key -> accepted value-> application/xml -->
+		<!-- Isso é muito daora, o postman exibiu um corpo de codigo em html com os valores! SHOW!!! -->
+		<!-- Isso é content negociation, o consumidor da API define o formato que ele quer para consumir -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
 			<version>2.14.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<version>3.0.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-
-		<!-- Ajuda a gerenciar o schema do BD.
-		 Quando um dev adciona uma coluna sem o outro saber, ele gerencia essa inconsistência
-		 Tem que criar uma pasta no resources (dbmigration) com arquivos de configuração para
-		 criação de tabela-->
-		<dependency>
-			<groupId>org.flywaydb</groupId>
-			<artifactId>flyway-mysql</artifactId>
 		</dependency>
 
 
