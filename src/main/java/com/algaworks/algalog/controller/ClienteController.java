@@ -3,6 +3,7 @@ package com.algaworks.algalog.controller;
 import com.algaworks.algalog.domain.model.Cliente;
 import com.algaworks.algalog.domain.repository.ClienteRepository;
 import jakarta.persistence.EntityManager;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,13 +72,13 @@ public class ClienteController {
     //Inserindo cliente
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Cliente adicionar(@RequestBody Cliente cliente){
+    public Cliente adicionar(@Valid @RequestBody Cliente cliente){
         return clienteRepository.save(cliente);
     }
 
     //Atualizando Cliente
     @PutMapping("/{clienteId}")
-    public ResponseEntity<Cliente> atualizar(@PathVariable Long clienteId, @RequestBody Cliente cliente){
+    public ResponseEntity<Cliente> atualizar(@PathVariable Long clienteId, @Valid @RequestBody Cliente cliente){
         if(!clienteRepository.existsById(clienteId)){//Se o cliente não existir
             return ResponseEntity.notFound().build();
         }
