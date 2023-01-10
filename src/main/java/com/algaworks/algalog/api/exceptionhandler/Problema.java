@@ -1,5 +1,6 @@
 package com.algaworks.algalog.api.exceptionhandler;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,6 +9,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@JsonInclude(JsonInclude.Include.NON_NULL) //Se o campo for nulo, ele não inclui na representação
+// (no postman não aparece o campo nulo quando uma excessão é disparada)
 @Getter
 @Setter
 public class Problema {
