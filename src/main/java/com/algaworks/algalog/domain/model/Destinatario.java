@@ -20,6 +20,8 @@ public class Destinatario {
     @Column(name = "destinatario_numero")
     private String numero;
 
+    //Lá no migration, pode remover o not null, precisa apenas refazer tudo ali.
+    // Complementos não são obrigatórios
     @Column(name = "destinatario_complemento")
     private String complemento;
 
