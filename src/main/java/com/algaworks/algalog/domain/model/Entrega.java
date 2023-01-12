@@ -13,6 +13,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 @Getter
 @Setter
@@ -51,9 +52,11 @@ public class Entrega {
     private StatusEntrega status;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private LocalDateTime dataPedido;
+    //private LocalDateTime dataPedido;
+    private OffsetDateTime dataPedido; //Esse configura melhor. Deve ser mudado em todos os lugares em que aparece
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY) //Apenas leitura
-    private LocalDateTime dataFinalizacao;
+    //private LocalDateTime dataFinalizacao;
+    private OffsetDateTime dataFinalizacao;
 
 }

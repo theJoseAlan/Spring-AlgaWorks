@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL) //Se o campo for nulo, ele não inclui na representação
@@ -15,7 +16,7 @@ import java.util.List;
 @Setter
 public class Problema {
     private int status; //Opcional, já que já tem o http status lá postman
-    private LocalDateTime dataHora;
+    private OffsetDateTime dataHora;
     private String titulo;
     private List<Campo> campos;
 
