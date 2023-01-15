@@ -45,16 +45,4 @@ public class Cliente {
     @Column(name = "fone")
     private String telefone;
 
-    /*@Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Cliente cliente = (Cliente) o;
-        return id != null && Objects.equals(id, cliente.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }*/
 }

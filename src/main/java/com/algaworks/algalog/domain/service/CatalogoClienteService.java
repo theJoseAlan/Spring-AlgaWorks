@@ -22,7 +22,8 @@ public class CatalogoClienteService {
                 .orElseThrow(() -> new NegocioException("Cliente não encontrado"));
     }
 
-    @Transactional //Diz que esse método deve ser executado dentro de uma transação. Se algo der errado, a transação é descartada
+    @Transactional //Diz que esse método deve ser executado dentro de uma transação. Se algo der errado,
+                    // a transação é descartada
     public Cliente salvar(Cliente cliente){
 
         //Verifica se o email que será salvo já está em uso
