@@ -7,6 +7,7 @@ import com.algaworks.algalog.domain.repository.EntregaRepository;
 import com.algaworks.algalog.domain.service.SolicitacaoEntregaService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +21,8 @@ import java.util.List;
 public class EntregaController {
 
     private EntregaRepository entregaRepository;
-
     private SolicitacaoEntregaService solicitacaoEntregaService;
+    private ModelMapper modelMapper;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -38,9 +39,10 @@ public class EntregaController {
     public ResponseEntity<EntregaModel> buscar(@PathVariable Long entregaId){
         return entregaRepository.findById(entregaId)
                 .map(entrega -> {
-                  EntregaModel entregaModel = new EntregaModel();
 
-                  entregaModel.setId(entrega.getId());
+                  EntregaModel entregaModel = modelMapper.map(entrega, EntregaModel.class);//Converte o objeto entrega para um objeto de EntregaModel.class
+
+                  /*entregaModel.setId(entrega.getId());
                   entregaModel.setNomeCliente(entrega.getCliente().getNome());
                   entregaModel.setDestinatario(new DestinatarioModel());
                   entregaModel.getDestinatario().setNome(entrega.getDestinatario().getNome());
@@ -51,7 +53,7 @@ public class EntregaController {
                   entregaModel.setTaxa(entrega.getTaxa());
                   entregaModel.setStatus(entrega.getStatus());
                   entregaModel.setDataPedido(entrega.getDataPedido());
-                  entregaModel.setDataFinalizacao(entrega.getDataFinalizacao());
+                  entregaModel.setDataFinalizacao(entrega.getDataFinalizacao());*/
 
                   return ResponseEntity.ok(entregaModel);
                 }).orElse(ResponseEntity.notFound().build());
