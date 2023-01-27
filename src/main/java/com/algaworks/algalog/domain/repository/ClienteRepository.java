@@ -10,7 +10,6 @@ import java.util.Optional;
 @Repository //Um repositório gerencia as entidades
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
-    
     List<Cliente> findByNome(String nome);
 
     List<Cliente> findByNomeContaining(String nome);//Caso o nome nao esteja completo, tipo Jo (Joao da Silva)
