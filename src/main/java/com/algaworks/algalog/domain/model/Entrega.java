@@ -9,6 +9,8 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -51,6 +53,20 @@ public class Entrega {
 
     //@JsonProperty(access = JsonProperty.Access.READ_ONLY) //Apenas leitura
     private OffsetDateTime dataFinalizacao;
+
+    @OneToMany(mappedBy = "entrega")
+    private List<Ocorrencia> ocorrencias = new ArrayList<>();
+
+    public Ocorrencia adcionarOcorrencia(String descricao) {
+        Ocorrencia ocorrencia = new Ocorrencia();
+        ocorrencia.setDescricao(descricao);
+        ocorrencia.setDataRegistro(OffsetDateTime.now());
+        ocorrencia.setEntrega(this);
+
+        this.getOcorrencias().add(ocorrencia);
+
+        return ocorrencia;
+    }
 
     //OBS.: As anotações do tipo @NotNull não são mais necessárias, a validação ocorre no bean e no input
     //Essa classe não é usada mais como entrada para fazer a transformação do corpo da requisição da API
