@@ -54,7 +54,7 @@ public class Entrega {
     //@JsonProperty(access = JsonProperty.Access.READ_ONLY) //Apenas leitura
     private OffsetDateTime dataFinalizacao;
 
-    @OneToMany(mappedBy = "entrega")
+    @OneToMany(mappedBy = "entrega", cascade = CascadeType.ALL)
     private List<Ocorrencia> ocorrencias = new ArrayList<>();
 
     public Ocorrencia adcionarOcorrencia(String descricao) {
