@@ -1,6 +1,7 @@
 package com.algaworks.algalog.domain.model;
 
 
+import com.algaworks.algalog.domain.Exception.NegocioException;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import lombok.EqualsAndHashCode;
@@ -66,6 +67,25 @@ public class Entrega {
         this.getOcorrencias().add(ocorrencia);
 
         return ocorrencia;
+    }
+
+    public void finalizar() {
+
+        if(naoPodeSerFinalizada()){
+            throw new NegocioException("Entrega não pode ser finalizada");
+        }
+
+        setStatus(StatusEntrega.FINALIZADA);
+        setDataFinalizacao(OffsetDateTime.now());
+
+    }
+
+    public boolean podeSerFinalizada(){
+        return StatusEntrega.PENDENTE.equals(getStatus());
+    }
+
+    public boolean naoPodeSerFinalizada(){
+        return !podeSerFinalizada();
     }
 
     //OBS.: As anotações do tipo @NotNull não são mais necessárias, a validação ocorre no bean e no input
