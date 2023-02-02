@@ -24,8 +24,8 @@ Por exemplo: A classe Problema é responsável por indicar o Status HTTP de um e
 
 ## ⚙️ Operações
 * Cliente: Criar, Listar todos, Obter por id, Atualizar e deletar
-* Entrega: Criar, Listar, Obter por id, Atualizar (seu status)
-*Ocorrencia: Criar (registrar), listar ocorrencias 
+* Entrega: Criar, Listar, Obter por id, Atualizar (seu status) 
+* Ocorrencia: Criar (registrar), listar ocorrencias 
 
 ## 🌫 Camadas (Pacotes)
 
