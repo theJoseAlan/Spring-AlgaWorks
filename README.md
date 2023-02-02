@@ -43,5 +43,5 @@ Por exemplo: A classe Problema é responsável por indicar o Status HTTP de um e
 
 
 ### 👀 Observações
-O sistema possui um pacote de migrations, assim ele mesmo cria seu Banco de Dados, Schemas e Tabelas
+O sistema possui um pacote de migrations, assim ele mesmo cria seu Banco de Dados, Schemas e Tabelas <br>
 A interface ValidationGroups valida os atributos marcados com @NotNull
